@@ -1,0 +1,129 @@
+@font-face {
+		font-family: 'Regular';
+		src: url('../fonts/otf/SF-Pro-Text-Regular.otf') format('woff2'); /* Adjust the path as needed */
+}
+
+@font-face {
+		font-family: 'Light';
+		src: url('../fonts/otf/SF-Pro-Text-Light.otf') format('woff2'); /* Adjust the path as needed */
+}
+
+body {
+	margin: 0; 
+		font-family: 'Regular', sans-serif; /* Use the custom font followed by fallback fonts */	
+}
+
+.container {
+		width: 90%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: -5px;
+
+}
+
+header {
+		background-color: white;
+		color: #333;
+		padding: 10px 0;
+}
+
+
+nav {
+		float: right;
+}
+
+nav ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		margin-top:-15px;
+}
+
+nav ul li {
+		display: inline-block;
+		margin-left: 20px;
+}
+
+nav ul li a {
+		color: #333;
+		text-decoration: none;
+		padding: 7px;
+		transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+		background-color: #ddd;
+		border-radius: 4px;
+}
+
+/* Dropdown menu styles */
+.dropdown:hover .dropdown-content {
+		max-height: 500px; /* Adjust based on the expected height of the dropdown */
+}
+
+.dropdown-content {
+		display: block;
+		position: absolute;
+		background-color: white;
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+		z-index: 1;
+		min-width: 160px;
+		margin-top: 7px;
+		border-radius: 4px;
+		transition: max-height 0.4s ease-in-out; /* Smooth transition for height */
+		max-height: 0;
+		overflow: hidden;
+}
+
+.dropdown-content li {
+		display: block;
+		margin: 0;
+}
+
+.dropdown-content li a {
+		display: block;
+		padding: 10px 20px;
+		color: #333;
+		text-decoration: none;
+		white-space: nowrap;
+		position: center;
+}
+
+.dropdown-content li a:hover {
+		background-color: #ddd;
+		border-radius: 4px;
+}
+
+
+footer {
+		background-color: white;
+		color: #333;
+		text-align: center;
+		padding: 10px 0;
+		margin-top: 20px;
+}
+
+/*This is the rest of the body and code situated for the login page only above this is the nav bar code*/
+
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 420px;
+	width: 100%;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+.center h1 {
+	text-align: center;
+	padding: 20px 0;
+	border-bottom: 1px solid silver;
+}
+
+.center p{
+	text-align: center;
+}
+

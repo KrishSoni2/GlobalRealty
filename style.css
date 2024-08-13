@@ -1,0 +1,479 @@
+@font-face {
+    font-family: 'Regular';
+    src: url('../fonts/otf/SF-Pro-Text-Regular.otf') format('woff2'); /* Adjust the path as needed */
+}
+
+@font-face {
+    font-family: 'Light';
+    src: url('../fonts/otf/SF-Pro-Text-Light.otf') format('woff2'); /* Adjust the path as needed */
+}
+
+body {
+	margin: 0; 
+    font-family: 'Regular', sans-serif; /* Use the custom font followed by fallback fonts */	
+}
+
+.container {
+		width: 90%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: -5px;
+		
+}
+
+header {
+		background-color: white;
+		color: #333;
+		padding: 10px 0;
+}
+
+
+nav {
+		float: right;
+}
+
+nav ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+    margin-top:-15px;
+}
+
+nav ul li {
+		display: inline-block;
+		margin-left: 20px;
+}
+
+nav ul li a {
+		color: #333;
+		text-decoration: none;
+		padding: 7px;
+		transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+		background-color: #ddd;
+		border-radius: 4px;
+}
+
+/* Dropdown menu styles */
+.dropdown:hover .dropdown-content {
+    max-height: 500px; /* Adjust based on the expected height of the dropdown */
+}
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    min-width: 160px;
+    margin-top: 7px;
+    border-radius: 4px;
+    transition: max-height 0.4s ease-in-out; /* Smooth transition for height */
+    max-height: 0;
+    overflow: hidden;
+}
+
+.dropdown-content li {
+    display: block;
+    margin: 0;
+}
+
+.dropdown-content li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+    position: center;
+}
+
+.dropdown-content li a:hover {
+    background-color: #ddd;
+    border-radius: 4px;
+}
+
+
+footer {
+		background-color: white;
+		color: #333;
+		text-align: center;
+		padding: 10px 0;
+		margin-top: 20px;
+}
+
+/*Above is all the CSS for the Navigation and Footer, Below this line is for the Landing image */
+.landing-image-container {
+    width: 100%;
+    height: 800px; /* Set your desired height */
+    overflow: hidden;
+    margin-top: 24px;
+    position: relative;
+}
+
+.landing-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Make the image cover the container */
+    object-position: top; /* Center the image within the container */
+    mask-image: linear-gradient(to bottom, transparent, white); /* Apply masking */
+    -webkit-mask-image: linear-gradient(to bottom, transparent, white); /* For Safari */
+    margin-top: -90px; /* Move the image up */
+}
+
+
+.Largest {
+    position: absolute;
+    top: 40%; /* Adjust vertical positioning as needed */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 80px; /* Increase font size */
+    text-align: center; /* Center the text horizontally */
+    white-space: nowrap; /* Prevent text from wrapping */
+    opacity: 0; /* Initially hide the text */
+    animation: slideUp 1.5s ease forwards; /* Apply slide-up animation */
+}
+
+.Caption {
+    position: absolute;
+    top: 60%; /* Adjust vertical positioning as needed */
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(70px); /* Adjusted vertical translation */
+    color: white;
+    font-size: 26px; /* Increase font size */
+    text-align: center; /* Center the text horizontally */
+    white-space: nowrap; /* Prevent text from wrapping */
+    opacity: 0; /* Initially hide the text */
+    animation: slideUp 1.5s ease forwards; /* Apply slide-up animation */
+	font-family: 'Regular','sans-serif';
+}
+
+
+
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%) translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) translateX(-50%);
+        opacity: 1;
+    }
+}
+
+/*Website Features*/
+.flex-container {
+    display: flex;
+    justify-content: center; /* Center the containers horizontally */
+    align-items: center;
+    height: 350px; /* Adjust the height as needed */
+}
+
+.flex-container > div {
+    background-color: #f1f1f1;
+    width: 350px;
+    height: 380px;
+    margin: 27px;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth size changes */
+}
+
+.flex-container > div:hover {
+    transform: scale(1.05); /* Increase size on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow intensity on hover */
+}
+
+.Feature-Header {
+    text-align: center;
+    color: #002366;
+    font-size: 38px;
+    font-family: 'Light', 'sans-serif';
+    margin-bottom: 90px;
+}
+
+/* Style for the container */
+.Home-Val {
+    text-align: center; /* Center the content horizontally *
+    padding: 20px; /* Add padding to create space around the content */
+    border-radius: 10px; /* Add rounded corners */
+    background-color: #f1f1f1; /* Set background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition effect */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.Home-Val:hover {
+    transform: translateY(-5px); /* Move the container up slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow intensity on hover */
+}
+
+/* Style for the icon */
+.homevalicon {
+    width: 100px; /* Set the width of the icon */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px;
+}
+
+/* Style for the home description */
+.home-des-title {
+    font-family: 'Regular', 'sans-serif';
+    font-size: 24px;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+/* Style for the home description */
+.home-description {
+    font-size: 16px; /* Decrease font size slightly */
+    max-width: 300px; /* Decrease max width to fit within container */
+    margin-top: 10px; /* Adjust margin top as needed */
+}
+
+/*Home Sale Container*/
+.Home-Sale {
+    text-align: center; /* Center the content horizontally */
+    padding: 20px; /* Add padding to create space around the content */
+    border-radius: 10px; /* Add rounded corners */
+    background-color: #f1f1f1; /* Set background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition effect */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.Home-Sale:hover {
+    transform: translateY(-5px); /* Move the container up slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow intensity on hover */
+}
+
+/* Style for the icon */
+.homesaleicon {
+    width: 100px; /* Set the width of the icon */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px;
+}
+
+/* Style for the home sale description */
+.home-sale-title {
+    font-family: 'Regular', 'sans-serif';
+    font-size: 24px;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+.home-sale-description {
+    font-size: 16px; /* Decrease font size slightly */
+    max-width: 300px; /* Decrease max width to fit within container */
+    margin-top: 10px; /* Adjust margin top as needed */
+}
+
+/*GLobal Property Listings*/
+.Global-Property-Listings{
+    text-align: center;
+    color: #002366;
+    font-size: 38px;
+    font-family: 'Light', 'sans-serif';
+    margin-top: 90px;
+}
+
+.listings {
+  width: 1200px;
+  margin: 100px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Added to wrap boxes on smaller screens */
+}
+
+.listings .box {
+  width: calc((100% / 3) - 20px);
+  background-color: white;
+  position: relative;
+  margin-bottom: 20px; /* Added to separate rows */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added to improve appearance */
+  border-radius: 10px; /* Added border radius */
+  overflow: hidden; /* To ensure border radius applies to the image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  border: 1px solid #ddd; /* Added border line */
+}
+
+.listings .box:hover {
+  transform: translateY(-10px); /* Pop-up effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.listings .box:first-of-type:before {
+  content: "Featured";
+  background-color: #ea723d;
+  color: white;
+  font-size: 13px;
+  padding: 4px 10px;
+  position: absolute;
+  top: 10px; /* Adjusted top position */
+  left: 10px; /* Adjusted left position */
+  z-index: 1;
+  border-radius: 5px; /* Added border radius */
+}
+
+.listings .box:first-of-type:after {
+  content: "";
+  border-width: 12px;
+  border-style: solid;
+  border-color: transparent transparent transparent #ea723d;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateY(-50%) translateX(-50%); /* Adjusted positioning */
+}
+
+
+.listings .box .top {
+  position: relative;
+}
+
+.listings .box .top:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #002366;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.listings .box .top:hover:before {
+  opacity: 1;
+}
+
+.listings .box .top:after {
+  content: "View Property";
+  color: white;
+  font-size: 12px;
+  padding: 10px;
+  border: 1px solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0;
+  border-radius: 5px; /* Added border radius */
+}
+
+.listings .box .top:hover:after {
+  opacity: 1;
+}
+
+.listings .box .top img {
+  width: 100%;
+  margin-bottom: -4px;
+}
+
+.listings .box .top span {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+.listings .box .top span i {
+  margin-left: 5px;
+}
+
+.listings .box .bottom {
+  padding: 20px 15px;
+  position: relative;
+  border-radius: 0 0 10px 10px; /* Ensure bottom part fits within rounded corners */
+}
+
+.listings .box:not(:last-of-type) .bottom:before {
+  content: "Hot";
+  background-color: #ea723d;
+  color: white;
+  font-size: 11px;
+  padding: 4px 7px;
+  position: absolute;
+  left: 20px;
+  top: -40px;
+  z-index: 1;
+  border-radius: 5px; /* Added border radius */
+}
+
+.listings .box .bottom h3 {
+  font-size: 15px;
+}
+
+.listings .box .bottom > p {
+  margin: 15px 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #777;
+}
+
+.listings .box .bottom .advants {
+  display: flex;
+}
+
+.listings .box .bottom .advants > div {
+  margin-right: 15px;
+}
+
+.listings .box .bottom .advants > div > span {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.listings .box .bottom .advants > div > div {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.listings .box .bottom .advants > div > div i {
+  color: #777;
+  font-size: 22px;
+}
+
+.listings .box .bottom .advants > div > div > span {
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.listings .box .bottom .advants > div > div > span > span {
+  color: #777;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+.listings .box .bottom .price {
+  margin-top: 20px;
+}
+
+.listings .box .bottom .price span:first-of-type {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.listings .box .bottom .price span:last-of-type {
+  color: #033aa0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+
+
+
+

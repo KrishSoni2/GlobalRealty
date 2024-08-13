@@ -1,0 +1,77 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Register</title>
+		<link rel="stylesheet" href="{% static 'login.css' %}">
+		<link rel="icon" type="image/x-icon" href="{% static 'media/file.png' %}">
+	</head>
+	<body>
+		<header>
+				<div class="container">
+						<div class="logo">
+							<img style=" width:45px;height:45px;margin-top:13px;margin-bottom:-15px;"src="{% static 'media/GRealty.png' %}" alt="Company Logo">
+						</div>
+					<nav>
+							<ul>
+									<li><a href="{% url 'globalhomes:index' %}">Home</a></li>
+									<li><a href="{% url 'globalhomes:about'%}">About</a></li>
+									<li class="dropdown">
+											<a href="#">Services</a>
+											<ul class="dropdown-content">
+													<li><a href="{% url 'globalhomes:homevalue' %}">Home Value Estimator</a></li>
+													<li><a href="{% url 'globalhomes:sell'%}">List Your Property</a></li>
+											</ul>
+									</li>
+									<li><a href="{% url 'globalhomes:contact'%}">Contact</a></li>
+									{% if user.is_authenticated %}
+											<li><a href="#">Welcome, {{ user.username }}</a></li>
+											<li><a href="{% url 'globalhomes:logout' %}">Logout</a></li>
+									{% else %}
+											<li><a href="{% url 'globalhomes:login' %}">Login</a></li>
+									{% endif %}
+							</ul>
+					</nav>
+				</div>
+		</header>
+
+		<!--Background image Code-->
+		<div class="background-image">
+			<img src="{% static 'media/login-back.jpg'%}" style="width: 100%; height: 100vh; object-fit: cover;">
+		</div>
+
+		<!-- Sign Up Form -->
+		<div class="center">
+			<form method="post" class="register-form">
+					<h1>Register</h1>
+					{% csrf_token %}
+					<div class="txt_field">
+							<input type="text" name="username" required />
+							<span></span>
+							<label class="form-label">Username</label>
+					</div>
+					<div class="txt_field">
+							<input type="email" name="email" required />
+							<span></span>
+							<label class="form-label">Email</label>
+					</div>
+					<div class="txt_field">
+							<input type="password" name="password1" required />
+							<span></span>
+							<label class="form-label">Password</label>
+					</div>
+					<div class="txt_field">
+							<input type="password" name="password2" required />
+							<span></span>
+							<label class="form-label">Confirm Password</label>
+					</div>
+					<input type="submit" value="Register" />
+					<div class="signup_link">Already a member? <a href="{% url 'globalhomes:login'%}">Login</a></div>
+			</form>
+		</div>
+		
+	</body>
+</html>

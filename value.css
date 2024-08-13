@@ -1,0 +1,196 @@
+@font-face {
+		font-family: 'Regular';
+		src: url('../fonts/otf/SF-Pro-Text-Regular.otf') format('woff2'); /* Adjust the path as needed */
+}
+
+@font-face {
+		font-family: 'Light';
+		src: url('../fonts/otf/SF-Pro-Text-Light.otf') format('woff2'); /* Adjust the path as needed */
+}
+
+body {
+	margin: 0; 
+		font-family: 'Regular', sans-serif; /* Use the custom font followed by fallback fonts */	
+}
+
+.container {
+		width: 90%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: -13px;
+
+}
+
+header {
+		background-color: white;
+		color: #333;
+		padding: 10px 0;
+}
+
+
+nav {
+		float: right;
+}
+
+nav ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		margin-top:-15px;
+}
+
+nav ul li {
+		display: inline-block;
+		margin-left: 20px;
+}
+
+nav ul li a {
+		color: #333;
+		text-decoration: none;
+		padding: 7px;
+		transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+		background-color: #ddd;
+		border-radius: 4px;
+}
+
+/* Dropdown menu styles */
+.dropdown:hover .dropdown-content {
+		max-height: 500px; /* Adjust based on the expected height of the dropdown */
+}
+
+.dropdown-content {
+		display: block;
+		position: absolute;
+		background-color: white;
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+		z-index: 1;
+		min-width: 160px;
+		margin-top: 7px;
+		border-radius: 4px;
+		transition: max-height 0.4s ease-in-out; /* Smooth transition for height */
+		max-height: 0;
+		overflow: hidden;
+}
+
+.dropdown-content li {
+		display: block;
+		margin: 0;
+}
+
+.dropdown-content li a {
+		display: block;
+		padding: 10px 20px;
+		color: #333;
+		text-decoration: none;
+		white-space: nowrap;
+		position: center;
+}
+
+.dropdown-content li a:hover {
+		background-color: #ddd;
+		border-radius: 4px;
+}
+
+
+footer {
+		background-color: white;
+		color: #333;
+		text-align: center;
+		padding: 10px 0;
+		margin-top: 20px;
+}
+
+/* Adjustments for Home Value Checker Form */
+
+
+/* Set font-family for form */
+#homeValueForm {
+		font-family: 'Regular', sans-serif;
+}
+
+/* Adjust form container width */
+#homeValueForm {
+		width: 90%;
+		max-width: 600px; /* Adjust width as needed */
+		margin: 0 auto;
+		padding: 20px; /* Add padding for spacing */
+		background-color: #f1f1f1; /* Match background color */
+		border-radius: 10px; /* Add rounded corners */
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+		transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition effect */
+}
+
+/* Adjust input and label styles */
+#homeValueForm label {
+		display: block; /* Make labels block elements for better alignment */
+		margin-bottom: 10px; /* Add margin for spacing between labels and inputs */
+		color: #333; /* Match text color */
+}
+
+#homeValueForm input {
+		width: 100%; /* Make inputs full-width */
+		padding: 8px; /* Add padding for better appearance */
+		margin-bottom: 15px; /* Add margin for spacing between inputs */
+		border-radius: 5px; /* Add rounded corners */
+		border: 1px solid #ccc; /* Match border color */
+}
+
+#homeValueForm button {
+		padding: 10px 20px; /* Add padding for button */
+		background-color: #002366; /* Match button background color */
+		color: white; /* Match button text color */
+		border: none; /* Remove button border */
+		border-radius: 5px; /* Add rounded corners */
+		cursor: pointer; /* Change cursor to pointer on hover */
+		transition: background-color 0.3s; /* Add transition effect */
+}
+
+#homeValueForm button:hover {
+		background-color: #004080; /* Darken button color on hover */
+}
+/* Adjustments for Result Container */
+/* Adjustments for Result Container */
+/* Adjustments for Result Container */
+/* Adjustments for Result Container */
+#result {
+		text-align: center; /* Center the content horizontally */
+		margin-top: 20px; /* Add margin to separate from form */
+}
+
+/* Container for the estimated number */
+#estimatedNumber {
+		font-size: 72px; /* Increase font size for the estimated value number */
+		font-weight: bold; /* Make the number bold */
+		color: #2196F3; /* Match Redfin's primary color */
+		margin-bottom: 10px; /* Add margin to separate from the text */
+}
+
+/* Container for the words under the estimated number */
+#estimatedText {
+		font-size: 16px; /* Adjust font size for the text */
+		color: #757575; /* Match text color */
+		margin-bottom: 20px; /* Add margin to separate from the number */
+}
+/* Style for the image at the top */
+#professionalImage {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		opacity: 0.9; /* Adjust opacity for blending */
+		filter: brightness(90%); /* Adjust brightness for aesthetic */
+		border-bottom: 1px solid #ccc; /* Add a border for separation */
+}
+
+/* Style for the content */
+.content {
+		margin-top: 20px; /* Adjust margin as needed */
+		text-align: center;
+		background-color: dimgray; /* Match the background color with the image aesthetic */
+		padding: 20px; /* Add padding for spacing */
+		border-radius: 10px; /* Add rounded corners */
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for the content */
+}
+}

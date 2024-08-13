@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Contact Us | Global Realty</title>
+		<link rel="stylesheet" href="{% static 'contact.css' %}">
+		<link rel="icon" type="image/x-icon" href="{% static 'media/file.png' %}">
+	</head>
+	<body>
+		<!--ADAM DO NOT TOUCH THE HEADER OR THE FOOTER AND ADD UR CSS TO THE contact.css File-->
+		<header>
+				<div class="container">
+						<div class="logo">
+								<img style="width:45px;height:45px;margin-top:17px;margin-bottom:-21px;" src="{% static 'media/GRealty.png' %}" alt="Company Logo">
+						</div>
+					<nav>
+							<ul>
+									<li><a href="{% url 'globalhomes:index' %}">Home</a></li>
+									<li><a href="{% url 'globalhomes:about'%}">About</a></li>
+									<li class="dropdown">
+											<a href="#">Services</a>
+											<ul class="dropdown-content">
+													<li><a href="{% url 'globalhomes:homevalue' %}">Home Value Estimator</a></li>
+													<li><a href="{% url 'globalhomes:sell'%}">List Your Property</a></li>
+											</ul>
+									</li>
+									<li><a href="{% url 'globalhomes:contact'%}">Contact</a></li>
+									{% if user.is_authenticated %}
+											<li><a href="#">Welcome, {{ user.username }}</a></li>
+											<li><a href="{% url 'globalhomes:logout' %}">Logout</a></li>
+									{% else %}
+											<li><a href="{% url 'globalhomes:login' %}">Login</a></li>
+									{% endif %}
+							</ul>
+					</nav>
+				</div>
+		</header>
+
+		<body>
+		<div class="contact-container">
+			<div class="left-col">
+			</div>
+			<div class="right-col">
+				<div class="theme-switch-wrapper">
+				<label class="theme-switch" for="checkbox">
+						<input type="checkbox" id="checkbox" />
+						<div class="slider round"></div>
+			</label>
+			<div class="description">Dark Mode</div>
+		</div>
+
+				<h1>Contact us</h1>
+				<p>Planning to visit Indonesia soon? Get insider tips on where to go, things to do and find best deals for your next adventure.</p>
+
+				<form id="contact-form" method="post">
+					<label for="name">Full name</label>
+			<input type="text" id="name" name="name" placeholder="Your Full Name" required>
+					<label for="email">Email Address</label>
+			<input type="email" id="email" name="email" placeholder="Your Email Address" required>
+					<label for="message">Message</label>
+			<textarea rows="6" placeholder="Your Message" id="message" name="message" required></textarea>
+					<!--<a href="javascript:void(0)">--><button type="submit" id="submit" name="submit">Send</button><!--</a>-->
+
+		</form>
+		<div id="error"></div>
+		<div id="success-msg"></div>
+			</div>
+		</div>
+		<script>
+		const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+		function switchTheme(e) {
+		if (e.target.checked) {
+				document.documentElement.setAttribute('data-theme', 'dark');
+		}
+		else {
+				document.documentElement.setAttribute('data-theme', 'light');
+		}    
+		}
+
+		toggleSwitch.addEventListener('change', switchTheme, false);
+
+
+		const name = document.getElementById('name');
+		const email = document.getElementById('email');
+		const message = document.getElementById('message');
+		const contactForm = document.getElementById('contact-form');
+		const errorElement = document.getElementById('error');
+		const successMsg = document.getElementById('success-msg');
+		const submitBtn = document.getElementById('submit');
+
+		const validate = (e) => {
+		e.preventDefault();
+
+		if (name.value.length < 3) {
+		errorElement.innerHTML = 'Your name should be at least 3 characters long.';
+		return false;
+		} 
+
+		if (!(email.value.includes('.') && (email.value.includes('@')))) {
+		errorElement.innerHTML = 'Please enter a valid email address.';
+		return false;
+		} 
+
+		if (!emailIsValid(email.value)) {
+		errorElement.innerHTML = 'Please enter a valid email address.';
+		return false;
+		}
+
+		if (message.value.length < 15) {
+		errorElement.innerHTML = 'Please write a longer message.';
+		return false;
+		}
+
+		errorElement.innerHTML = '';
+		successMsg.innerHTML = 'Thank you! I will get back to you as soon as possible.'; 
+
+		e.preventDefault();
+		setTimeout(function () {
+		successMsg.innerHTML = '';
+		document.getElementById('contact-form').reset();
+		}, 6000);
+
+		return true;
+
+		}
+
+		const emailIsValid = email => {
+		return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+		}
+
+		submitBtn.addEventListener('click', validate);
+		</script>
+		</body>
+			
+
+		
+		<footer>
+			<div class="container">
+					<p>&copy; 2024 Global Homes. All rights reserved.</p>
+			</div>
+		</footer>
+	</body>
+</html>

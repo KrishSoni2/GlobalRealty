@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{% static 'propertyform.css' %}">
+		<title>List Property | Global Realty</title>
+		<link rel="icon" type="image/x-icon" href="{% static 'media/file.png' %}">
+	</head>
+	<body>
+		<header>
+				<div class="container">
+						<div class="logo">
+								<img style="width:45px;height:45px;margin-top:17px;margin-bottom:-21px;" src="{% static 'media/GRealty.png' %}" alt="Company Logo">
+						</div>
+						<nav>
+								<ul>
+										<li><a href="{% url 'globalhomes:index' %}">Home</a></li>
+										<li><a href="{% url 'globalhomes:about'%}">About</a></li>
+										<li class="dropdown">
+												<a href="#">Services</a>
+												<ul class="dropdown-content">
+														<li><a href="{% url 'globalhomes:homevalue' %}">Home Value Estimator</a></li>
+														<li><a href="{% url 'globalhomes:sell'%}">List Your Property</a></li>
+												</ul>
+										</li>
+										<li><a href="{% url 'globalhomes:contact'%}">Contact</a></li>
+										{% if user.is_authenticated %}
+												<li><a href="#">Welcome, {{ user.username }}</a></li>
+												<li><a href="{% url 'globalhomes:logout' %}">Logout</a></li>
+										{% else %}
+												<li><a href="{% url 'globalhomes:login' %}">Login</a></li>
+										{% endif %}
+								</ul>
+						</nav>
+				</div>
+		</header>
+		<hr>
+		
+		
+		<div class="center">
+				<form id="property-form" class="property-form" method="post" enctype="multipart/form-data">
+						<h1>Property Listing Form</h1>
+						{% csrf_token %}
+						<h2>Your info</h2>
+						<div class="txt_field">
+								<input type="text" name="name" required />
+								<span></span>
+								<label class="form-label">Full Name</label>
+						</div>
+						<div class="txt_field">
+								<input type="text" name="phone" required />
+								<span></span>
+								<label class="form-label">Phone Number with Area Code</label>
+						</div>
+						<div class="txt_field">
+								<input type="email" name="email" required />
+								<span></span>
+								<label class="form-label">Email</label>
+						</div>
+
+						<h2>Enter Property Details</h2>
+						<div class="txt_field">
+								<input type="text" name="address" required />
+								<span></span>
+								<label class="form-label">Property Address</label>
+						</div>
+						<div class="txt_field">
+								<input type="text" name="price" required />
+								<span></span>
+								<label class="form-label">Property Price</label>
+						</div>
+						<div class="txt_field">
+								<input type="number" name="bedrooms" required />
+								<span></span>
+								<label class="form-label">Bedrooms</label>
+						</div>
+						<div class="txt_field">
+								<input type="number" name="bathrooms" required />
+								<span></span>
+								<label class="form-label">Bathrooms</label>
+						</div>
+						<div class="txt_field">
+								<input type="number" name="sqft" required />
+								<span></span>
+								<label class="form-label">Sqft</label>
+						</div>
+						<div class="txt_field">
+								<input type="number" name="lot_size" required />
+								<span></span>
+								<label class="form-label">Lot Size</label>
+						</div>
+						<div class="txt_field">
+								<input type="number" name="year_built" required />
+								<span></span>
+								<label class="form-label">Year Built</label>
+						</div>
+						<div class="txt_field">
+								<textarea id="description" name="description" required style="resize: none;"></textarea>
+								<span></span>
+								<label class="form-label">Description</label>
+						</div>
+						<div class="txt_field">
+								<input type="file" name="image" />
+								<span></span>
+								<label class="form-label">Property Image</label>
+						</div>
+
+						<input type="submit" value="Submit" />
+				</form>
+		</div>
+		
+		<script>
+				// Get references to the property form and contact form
+				const propertyForm = document.getElementById('property-form');
+				const contactForm = document.getElementById('contact-form');
+
+				// Get reference to the continue button
+				const continueBtn = document.getElementById('continue-btn');
+
+				// Add event listener to the continue button
+				continueBtn.addEventListener('click', function() {
+						// Hide property form
+						propertyForm.style.display = 'none';
+						// Show contact form
+						contactForm.style.display = 'block';
+				});
+
+				const descriptionTextarea = document.getElementById('description');
+
+				descriptionTextarea.addEventListener('input', function() {
+						this.style.height = 'auto'; // Reset the height to auto
+						this.style.height = (this.scrollHeight + 2) + 'px'; // Set the new height based on scroll height
+				});
+		</script>
+
+	</body>
+</html>
+

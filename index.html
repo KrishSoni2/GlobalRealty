@@ -1,0 +1,326 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Global Home Listings </title>
+		
+		<link rel="icon" type="image/x-icon" href="{% static 'media/file.png' %}">
+		<script>
+			document.addEventListener('contextmenu', function (e) {
+				e.preventDefault(); // Disable right-click
+			});
+			document.addEventListener('dragstart', function (e) {
+				e.preventDefault(); // Disable dragging
+			});
+		</script>
+		
+		<link rel="stylesheet" href="{% static 'style.css' %}">
+	
+
+	</head>
+	<body>
+		<header>
+				<div class="container">
+						<div class="logo">
+								<img style="width:45px;height:45px;margin-top:17px;margin-bottom:-21px;" src="{% static 'media/GRealty.png' %}" alt="Company Logo">
+						</div>
+						<nav>
+								<ul>
+										<li><a href="{% url 'globalhomes:index' %}">Home</a></li>
+										<li><a href="{% url 'globalhomes:about'%}">About</a></li>
+										<li class="dropdown">
+												<a href="#">Services</a>
+												<ul class="dropdown-content">
+														<li><a href="{% url 'globalhomes:homevalue' %}">Home Value Estimator</a></li>
+														<li><a href="{% url 'globalhomes:sell'%}">List Your Property</a></li>
+												</ul>
+										</li>
+										<li><a href="{% url 'globalhomes:contact'%}">Contact</a></li>
+										{% if user.is_authenticated %}
+												<li><a href="#">Welcome, {{ user.username }}</a></li>
+												<li><a href="{% url 'globalhomes:logout' %}">Logout</a></li>
+										{% else %}
+												<li><a href="{% url 'globalhomes:login' %}">Login</a></li>
+										{% endif %}
+								</ul>
+						</nav>
+				</div>
+		</header>
+
+
+		<div class="landing-image-container">
+			<h1 class="Largest">The Largest Global Listing Platform</h1>
+			<p class="Caption">Post your Realty listings With No Fee</p>
+			<img src="{% static 'media/mansion.webp' %}" id="landing-image">	
+		</div>
+		
+		<!--Features Section-->
+
+		<h1 class="Feature-Header">All Your Property Sale Tools in One Place</h1>
+		
+		<div class="flex-container">
+		  
+			<div class="Home-Val">
+					<a href="{% url 'globalhomes:homevalue' %}" style='text-decoration:none; color: inherit;'>
+							<img src="{% static 'media/HomeValue.png' %}" alt="Home Value Icon" class="homevalicon">
+							<h2 class="home-des-title">Home Value Checker</h2>
+							<p class="home-description">
+									Knowing the estimated value of your own home helps you price your home for sale. Understanding your home’s worth allows you to estimate the proceeds of a future home sale.
+							</p>
+					</a>
+			</div>
+		  
+			<div class="Home-Sale">
+				<a href="{% url 'globalhomes:sell' %}" style='text-decoration:none;color: inherit;'>
+					<img src="{% static 'media/HomeSale.png' %}" alt="Home Sale " class="homesaleicon">
+					<h2 class="home-sale-title">List Property at No Cost</h2>
+					<p class="home-sale-description">
+						List your home with us at no extra cost! Our platform offers homeowners the opportunity to showcase their properties without incurring additional fees. Enjoy the convenience of reaching potential buyers without worrying about hidden charges. Start your home-selling journey with us today, hassle-free and budget-friendly
+					</p>    
+				</a>
+			</div>
+
+		</div>
+
+
+		<div class="Global-Property-Listings">
+				<h1>Global Property Listings</h1>
+		</div>
+		
+		<div class="listings">
+			<div class="box">
+				<div class="top">
+					<img src="{%static 'media/Hills.jpg'%}" alt="" />
+					<span
+						><i class="fas fa-heart"></i><i class="fas fa-exchange-alt"></i
+					></span>
+				</div>
+				<div class="bottom">
+					<h3>1240 Shadow Hill Way, Beverly Hills, CA 90210</h3>
+					<p>
+						This architectural masterpiece is set upon a promontory on one of the most coveted hidden streets in Beverly Hills, Shadow Hill...
+					</p>
+					<div class="advants">
+						<div>
+							<span>Bedrooms</span>
+							<div><i class="fas fa-th-large"></i><span>3</span></div>
+						</div>
+						<div>
+							<span>Bathrooms</span>
+							<div><i class="fas fa-shower"></i><span>3</span></div>
+						</div>
+						<div>
+							<span>Area</span>
+							<div>
+								<i class="fas fa-vector-square"></i
+								><span>4300<span>Sq Ft</span></span>
+							</div>
+						</div>
+					</div>
+					<div class="price">
+						<span>For Sale</span>
+						<span>$24,950,000</span>
+					</div>
+				</div>
+			</div>
+			<div class="box">
+				<div class="top">
+					<img src="{% static 'media/porto.jpg'%}" alt="" />
+					<span
+						><i class="fas fa-heart"></i><i class="fas fa-exchange-alt"></i
+					></span>
+				</div>
+				<div class="bottom">
+					<h3>7 Bed Villa | Mexilhoeira Grande Oasis</h3>
+					<p>
+						Spectacularly restored country house with multiple annexes and far ranging outdoor areas on a 3,5 Hectare plot
+					</p>
+					<div class="advants">
+						<div>
+							<span>Bedrooms</span>
+							<div><i class="fas fa-th-large"></i><span>7</span></div>
+						</div>
+						<div>
+							<span>Bathrooms</span>
+							<div><i class="fas fa-shower"></i><span>4</span></div>
+						</div>
+						<div>
+							<span>Area</span>
+							<div>
+								<i class="fas fa-vector-square"></i
+								><span>3552<span>Sq Ft</span></span>
+							</div>
+						</div>
+					</div>
+					<div class="price">
+						<span>For Sale</span>
+						<span>€2,499,000</span>
+					</div>
+				</div>
+			</div>
+			<div class="box">
+				<div class="top">
+					<img src="{% static 'media/italy.jpg'%}/" alt="" />
+					<span
+						><i class="fas fa-heart"></i><i class="fas fa-exchange-alt"></i
+					></span>
+				</div>
+				<div class="bottom">
+					<h3>Panoramica, Tuscany, Address available on request</h3>
+					<p>
+						We offer for sale an apartment in a building with elevator.
+
+						The bright apartment consists of a large living room with double window, kitchen with veranda and balcony, two very large bedrooms, bathroom and convenient closet...
+					</p>
+					<div class="advants">
+						<div>
+							<span>Bedrooms</span>
+							<div><i class="fas fa-th-large"></i><span></span></div>
+						</div>
+						<div>
+							<span>Bathrooms</span>
+							<div><i class="fas fa-shower"></i><span>2</span></div>
+						</div>
+						<div>
+							<span>Area</span>
+							<div>
+								<i class="fas fa-vector-square"></i
+								><span>1800<span>Sq Ft</span></span>
+							</div>
+						</div>
+					</div>
+					<div class="price">
+						<span>For Sale</span>
+						<span>€320,000</span>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="listings">
+			<div class="box">
+				<div class="top">
+					<img src="https://cdn.pixabay.com/photo/2014/07/10/17/18/large-home-389271__340.jpg" alt="" />
+					<span
+						><i class="fas fa-heart"></i><i class="fas fa-exchange-alt"></i
+					></span>
+				</div>
+				<div class="bottom">
+					<h3>Cape Cod Home</h3>
+					<p>
+						Enchanting three bedrooms, three bath home with spacious one
+						bedroom, one bath...
+					</p>
+					<div class="advants">
+						<div>
+							<span>Bedrooms</span>
+							<div><i class="fas fa-th-large"></i><span>3</span></div>
+						</div>
+						<div>
+							<span>Bathrooms</span>
+							<div><i class="fas fa-shower"></i><span>3</span></div>
+						</div>
+						<div>
+							<span>Area</span>
+							<div>
+								<i class="fas fa-vector-square"></i
+								><span>4300<span>Sq Ft</span></span>
+							</div>
+						</div>
+					</div>
+					<div class="price">
+						<span>For Sale</span>
+						<span>$540,000</span>
+					</div>
+				</div>
+			</div>
+			<div class="box">
+				<div class="top">
+					<img src="https://cdn.pixabay.com/photo/2014/07/31/00/30/vw-beetle-405876__340.jpg" alt="" />
+					<span
+						><i class="fas fa-heart"></i><i class="fas fa-exchange-alt"></i
+					></span>
+				</div>
+				<div class="bottom">
+					<h3>Villa In Alexandria</h3>
+					<p>
+						Enjoy serenity of Deering Bay whole day from this spectacular North
+						and...
+					</p>
+					<div class="advants">
+						<div>
+							<span>Bedrooms</span>
+							<div><i class="fas fa-th-large"></i><span>3</span></div>
+						</div>
+						<div>
+							<span>Bathrooms</span>
+							<div><i class="fas fa-shower"></i><span>3.5</span></div>
+						</div>
+						<div>
+							<span>Area</span>
+							<div>
+								<i class="fas fa-vector-square"></i
+								><span>3500<span>Sq Ft</span></span>
+							</div>
+						</div>
+					</div>
+					<div class="price">
+						<span>For Sale</span>
+						<span>$825,000</span>
+					</div>
+				</div>
+			</div>
+			<div class="box">
+				<div class="top">
+					<img src="https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070__340.jpg" alt="" />
+					<span
+						><i class="fas fa-heart"></i><i class="fas fa-exchange-alt"></i
+					></span>
+				</div>
+				<div class="bottom">
+					<h3>Villa In Cairo</h3>
+					<p>
+						The very best waterfront location in Tahrir square and beside many
+						cool places
+					</p>
+					<div class="advants">
+						<div>
+							<span>Bedrooms</span>
+							<div><i class="fas fa-th-large"></i><span>3</span></div>
+						</div>
+						<div>
+							<span>Bathrooms</span>
+							<div><i class="fas fa-shower"></i><span>2</span></div>
+						</div>
+						<div>
+							<span>Area</span>
+							<div>
+								<i class="fas fa-vector-square"></i
+								><span>1800<span>Sq Ft</span></span>
+							</div>
+						</div>
+					</div>
+					<div class="price">
+						<span>For Sale</span>
+						<span>$410,000</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		
+
+	
+		<footer>
+				<div class="container-foot">
+						<p>&copy; 2024 Global Homes. All rights reserved.</p>
+				</div>
+		</footer>
+		
+	</body>
+</html>

@@ -1,0 +1,116 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>About | Global Realty</title>
+		<link rel="stylesheet" href="{% static 'about.css' %}">
+		<link rel="icon" type="image/x-icon" href="{% static 'media/file.png' %}">
+	</head>
+	<body>
+		<header>
+				<div class="container">
+						<div class="logo">
+								<img style="width:45px;height:45px;margin-top:17px;margin-bottom:-21px;" src="{% static 'media/GRealty.png' %}" alt="Company Logo">
+						</div>
+					<nav>
+							<ul>
+									<li><a href="{% url 'globalhomes:index' %}">Home</a></li>
+									<li><a href="{% url 'globalhomes:about'%}">About</a></li>
+									<li class="dropdown">
+											<a href="#">Services</a>
+											<ul class="dropdown-content">
+													<li><a href="{% url 'globalhomes:homevalue' %}">Home Value Estimator</a></li>
+													<li><a href="{% url 'globalhomes:sell'%}">List Your Property</a></li>
+											</ul>
+									</li>
+									<li><a href="{% url 'globalhomes:contact'%}">Contact</a></li>
+									{% if user.is_authenticated %}
+											<li><a href="#">Welcome, a></li>
+											<li><a href="{% url 'globalhomes:logout' %}">Logout</a></li>
+									{% else %}
+											<li><a href="{% url 'globalhomes:login' %}">Login</a></li>
+									{% endif %}
+							</ul>
+					</nav>
+				</div>
+		</header>
+		<style>
+		#reservation-form {
+			background-color: white;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+
+		textarea {
+			width: 97.5%;
+			padding: 10px;
+			margin-top: 5px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+			h2 {
+			text-align: center;
+			text-decoration: underline;
+			}
+		body {
+				background-image: url("https://www.dcmodernhomes.com/uploads/dc-modern-mid-century-and-contemporary-homes.37.jpg");
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+		main {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		</style>
+		 <main>
+				<section id="reservation-form">
+					<form action="reservation.php" method="post">
+						<h2>Welcome to Global Homes!</h2>
+
+						<p style="text-align: center; color: black">Your premier destination for all things related to home listings. We are a dedicated team of real estate professionals passionate about helping individuals and families find their ideal homes. With our extensive knowledge, personalized service, and commitment to excellence, we strive to make your home buying or selling journey a seamless and memorable experience.
+</p>
+
+						<h2>Our Mission</h2>
+
+						<p style="text-align: center; color: black">At Global Homes, our mission is simple: to connect people with their perfect homes. We understand that a home is more than just a physical space; it's a place where memories are created, dreams are nurtured, and lives are built. With this in mind, we are dedicated to providing exceptional service, comprehensive listings, and expert guidance to ensure that your home search or sale is successful and satisfying.
+</p>
+
+						<h2>Extensive Home Listings</h2>
+
+						<p style="text-align: center; color: black">We take pride in offering an extensive and diverse range of home listings to suit various preferences and budgets. Whether you're searching for a cozy starter home, a spacious family residence, a luxurious estate, or an investment property, our comprehensive database has something for everyone. Our listings are carefully curated and regularly updated to provide you with the most accurate and current information available.</p>
+
+						<h2>Experienced and Knowledgeable Agents</h2>
+
+						<p style="text-align: center; color: black">Our team of experienced real estate agents is the backbone of our company. With their in-depth knowledge of the local market, industry expertise, and commitment to client satisfaction, they are equipped to guide you through every step of the home buying or selling process. From understanding your unique requirements to negotiating the best deals, our agents are dedicated to ensuring a successful outcome for you.</p>
+
+						<h2>Personalized Approach</h2>
+
+						<p style="text-align: center; color: black">We understand that every client has unique needs and preferences when it comes to buying or selling a 
+
+		<footer>
+				<div class="container">
+						<p>&copy; 2024 Global Homes. All rights reserved.</p>
+				</div>
+		</footer>hoe. That's  By collaborating closely with you, we can tailor our services to match your specific requirements, providing you with a customized experience that delivers results.</p>
+
+						<h2>Seamless Transactions</h2>
+
+						<p style="text-align: center; color: black">Navigating the intricacies of real estate transactions can be daunting. That's where we come in. Our team is committed to making the process as smooth and stress-free as possible. We handle the paperwork, coordinate property viewings, facilitate negotiations, and ensure that all the necessary details are taken care of, saving you time and effort. Our aim is to provide you with a seamless experience from start to finish.</p>
+					</form>
+				</section>
+			</main>
+		</body>
+		<footer>
+				<div class="container">
+						<p>&copy; 2024 Global Homes. All rights reserved.</p>
+				</div>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+{%load static%}
+<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Property Listing</title>
+			<link rel="stylesheet" href="{% static 'propertydetail.css' %}">
+		
+		</head>
+		<body>
+
+			<header>
+					<div class="container">
+							<div class="logo">
+									<img style="width:45px;height:45px;margin-top:17px;margin-bottom:-21px;" src="{% static 'media/GRealty.png' %}" alt="Company Logo">
+							</div>
+							<nav>
+									<ul>
+											<li><a href="{% url 'globalhomes:index' %}">Home</a></li>
+											<li><a href="{% url 'globalhomes:about'%}">About</a></li>
+											<li class="dropdown">
+													<a href="#">Services</a>
+													<ul class="dropdown-content">
+															<li><a href="{% url 'globalhomes:homevalue' %}">Home Value Estimator</a></li>
+															<li><a href="{% url 'globalhomes:sell'%}">List Your Property</a></li>
+													</ul>
+											</li>
+											<li><a href="{% url 'globalhomes:contact'%}">Contact</a></li>
+											{% if user.is_authenticated %}
+													<li><a href="#">Welcome, {{ user.username }}</a></li>
+													<li><a href="{% url 'globalhomes:logout' %}">Logout</a></li>
+											{% else %}
+													<li><a href="{% url 'globalhomes:login' %}">Login</a></li>
+											{% endif %}
+									</ul>
+							</nav>
+					</div>
+			</header>
+		
+			<div class="container">
+				<div class="image-gallery">
+					<img src="{% static 'media/Hills.jpg' %}" alt="Main Image">
+					<div class="small-images">
+						<img src="{% static 'media/hills2.jpg' %}" alt="Image 1">
+						<img src="{% static 'media/hills3.jpg' %}" alt="Image 2">
+						<img src="{% static 'media/hills4.jpg' %}" alt="Image 3">
+					</div>
+				</div>
+		
+				<div class="property-info">
+					<div class="price">$24,950,000</div>
+					<div class="details">
+						<div>6 Beds</div>
+						<div>7 Baths</div>
+						<div>7,500 Sq Ft</div>
+					</div>
+					<div class="description">
+						Located in the heart of Beverly Hills, this luxurious estate offers unparalleled views of the city and an exceptional lifestyle. Featuring top-of-the-line amenities and modern architecture, this property is perfect for those seeking elegance and sophistication.
+					</div>
+					<div class="location">
+						<div alt='map' style="text-decoration:none; overflow:hidden;max-width:100%;width:150px;height:150px;"><div id="embedded-map-display" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=1240+Shadow+Hill+Way,+Beverly+Hills,+CA+90210&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="my-codefor-googlemap" rel="nofollow" href="https://kbj9qpmy.com/bp" id="authorize-map-data">Broadband Providers</a><style>#embedded-map-display img{max-width:none!important;background:none!important;font-size: inherit;font-weight:inherit;}</style></div>
+						<div>1240 Shadow Hill Way, Beverly Hills, CA 90210</div>
+					</div>
+		
+				</div>
+			</div>
+
+			<footer>
+					<div class="container-foot">
+							<p>&copy; 2024 Global Homes. All rights reserved.</p>
+					</div>
+			</footer>
+		
+		</body>
+	</html>
